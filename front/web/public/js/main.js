@@ -5,16 +5,16 @@ const data = {
     "tabla": "persona",
     "datos": {
         "tipo_persona_id": 2,
-        "persona_nombre": document.getElementById,
-        "persona_email": "",
-        "persona_clave": ""
+        "persona_nombre": document.getElementById('persona_nombre'),
+        "persona_email": document.getElementById('persona_email'),
+        "persona_clave": document.getElementById('persona_clave')
     }
 }
 
 postDataPersona = () => {
     http.post(API_URL, data)
     .subscribe( data => {
-      // this.postData = data
+      // postData = data
     })
     window.location.reload()
 }
