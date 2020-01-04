@@ -11,6 +11,7 @@ exports.up = function(knex, Promise) {
     table.increments('cartilla_id');
     table.string('cartilla_nombre').notNullable().unique();
     table.string('cartilla_codigo').notNullable().unique();
+    table.string('cartilla_valores').notNullable();
   })
 
   .createTable( 'persona', function( table ) {
