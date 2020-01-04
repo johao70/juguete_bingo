@@ -7,8 +7,48 @@
     <link rel="stylesheet" type="text/css" href="build/tailwind.css">
 </head>
 <body>
-    <a href="first_screen.html">
-        <img class="h-screen logo_position" src="./assets/logo_app.png" alt="logo">
-    </a>
+    <img class="h-64 center_horizontal" src="./assets/logo_app.png" alt="logo">
+
+    <div class="w-64 center_horizontal">
+        <a class="text-center center_horizontal text-yellow-300 text-4xl border border-orange-500 bg-orange-500 shadow-border bg-blue hover:bg-blue-dark text-sm py-3 px-4 m-20 tracking-wide uppercase font-bold" href="first_screen.html">Ingresar</a>
+    </div>
+
+    
+    <!-- Trigger/Open The Modal -->
+    <button class="text-center center_horizontal text-gray-600 text-xl border border-orange-500 shadow-border bg-blue hover:bg-blue-dark text-sm py-3 px-4 m-20 tracking-wide font-bold" id="myBtn">Registrarse</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1 class="text-center h-20 text-3xl">Ingrese sus datos</h1>
+
+        <form class="text-xl" action="" method="post">
+            <input type="number" name="tipo_persona_id" value="2" hidden>
+
+            <label for="persona_nombre">Nombre de usuario: </label>
+            <input class="border border-orange-500" type="text" name="persona_nombre" placeholder="Elsa Yayin">
+
+            <label for="persona_email">Correo Electrónico: </label>
+            <input class="border border-orange-500" type="email" name="persona_email">
+
+            <label for="persona_clave">Contraseña: </label>
+            <input class="border border-orange-500" type="password" name="persona_clave">
+
+            <br><br>
+            <button class="center_horizontal border border-orange-500" type="submit">Registrarme</button>
+        </form>
+    </div>
+
+    </div>
+
+
 </body>
+
+
+<script src="./js/main.js"></script>
+
+
 </html>

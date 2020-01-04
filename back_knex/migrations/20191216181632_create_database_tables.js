@@ -9,19 +9,15 @@ exports.up = function(knex, Promise) {
 
   .createTable( 'cartilla', function( table ) {
     table.increments('cartilla_id');
-    table.string('cartilla_nombre').notNullable().unique();
     table.string('cartilla_codigo').notNullable().unique();
-    table.string('cartilla_valores').notNullable();
+    table.string('cartilla_numeros').notNullable();
   })
 
   .createTable( 'persona', function( table ) {
     table.increments('persona_id');
     table.integer('tipo_persona_id').references('tipo_persona_id').inTable('tipo_persona');
-    table.string('persona_identificacion').notNullable().unique();
     table.string('persona_nombre').notNullable();
     table.string('persona_email').notNullable();
-    table.string('persona_direccion').notNullable();
-    table.string('persona_telefono').notNullable();
     table.string('persona_clave').notNullable();
   })
 

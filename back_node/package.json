@@ -1,0 +1,19 @@
+{
+  "name": "back_node",
+  "version": "0.0.5",
+  "description": "node - express",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "keywords": ["node", "express"],
+  "author": "Johao Perlaza",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^7.17.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
