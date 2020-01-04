@@ -4,6 +4,7 @@
   "description": "Bingo app work",
   "main": "index.js",
   "scripts": {
+    "start": "live-server --open=./public",
     "build": "postcss css/tailwind.css -o public/build/tailwind.css"
   },
   "keywords": [
