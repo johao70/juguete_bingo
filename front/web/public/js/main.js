@@ -4,9 +4,22 @@ const API_URL = "http://localhost:8001/bingo/"
 const data = {
     "tabla": "persona",
     "datos": {
-        ""
+        "tipo_persona_id": 2,
+        "persona_nombre": document.getElementById,
+        "persona_email": "",
+        "persona_clave": ""
     }
 }
+
+postDataPersona = () => {
+    http.post(API_URL, data)
+    .subscribe( data => {
+      // this.postData = data
+    })
+    window.location.reload()
+}
+
+
 // const http = require('http')
 
 // postDataRegistro = () => {  
