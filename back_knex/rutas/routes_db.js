@@ -1,7 +1,9 @@
 ;
 const express = require('express')
+
 let api = express.Router(),
-  control = require('../controles/crud')
+
+control = require('../controles/crud')
 
 api.get('/bingo', control.getDatos)
 api.post('/bingo', control.postDatos)

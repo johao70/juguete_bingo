@@ -12,7 +12,7 @@ api = rutas[0]
 rutas.forEach((ruta, index) => {
     if (index > 0) 
         ruta.stack.forEach((accion) => {
-                api.stack.push(accion)
+            api.stack.push(accion)
         })
 })
 
