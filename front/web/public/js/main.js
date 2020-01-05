@@ -1,31 +1,33 @@
 const http = new XMLHttpRequest();
 
 //URL CONEXION
-const API_URL = "http://localhost:8001/server/bingo"
-
-http.open('POST', API_URL, true);
-http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+const API_URL = "http://localhost:4000/persona"
 
 postDataPersona = () => {
-    const data = {
-        "tabla": "persona",
-        "datos": {
-            // "tipo_persona_id": 2,
-            // "persona_nombre": document.getElementById('persona_nombre'),
-            // "persona_email": document.getElementById('persona_email'),
-            // "persona_clave": document.getElementById('persona_clave')
-            "persona_nombre": "test",
-            "persona_email": "test",
-            "persona_clave": "test"
-        }
-    }
+    http.open('POST', API_URL, true);
+    http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    // http.setRequestHeader("Content-Type", "application/json");
 
     http.onreadystatechange = function() {
         if(http.readyState == 4 && http.status == 200) {
-            console.log(JSON.parse(http.responseText));
+          console.log(http.responseText);
         }
     }
-    http.send(data);
+
+    const data =
+    {
+      // "tipo_persona_id": 1,
+      // "cartilla_id": 1,
+      persona_nombre: "test2",
+      persona_email: "test2",
+      persona_clave: "test2"
+      // "persona_nombre": document.getElementById('persona_nombre'),
+      // "persona_email": document.getElementById('persona_email'),
+      // "persona_clave": document.getElementById('persona_clave')
+    }
+
+    console.log(data)
+    http.send(data)
 }
 
 
