@@ -1,39 +1,32 @@
-//URL CONEXION
-const API_URL = "http://localhost:8001/bingo/"
+const http = new XMLHttpRequest();
 
-const data = {
-    "tabla": "persona",
-    "datos": {
-        "tipo_persona_id": 2,
-        "persona_nombre": document.getElementById('persona_nombre'),
-        "persona_email": document.getElementById('persona_email'),
-        "persona_clave": document.getElementById('persona_clave')
-    }
-}
+//URL CONEXION
+const API_URL = "http://localhost:8001/server/bingo"
+
+http.open('POST', API_URL, true);
+http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 
 postDataPersona = () => {
-    http.post(API_URL, data)
-    .subscribe( data => {
-      // postData = data
-    })
-    window.location.reload()
+    const data = {
+        "tabla": "persona",
+        "datos": {
+            // "tipo_persona_id": 2,
+            // "persona_nombre": document.getElementById('persona_nombre'),
+            // "persona_email": document.getElementById('persona_email'),
+            // "persona_clave": document.getElementById('persona_clave')
+            "persona_nombre": "test",
+            "persona_email": "test",
+            "persona_clave": "test"
+        }
+    }
+
+    http.onreadystatechange = function() {
+        if(http.readyState == 4 && http.status == 200) {
+            console.log(JSON.parse(http.responseText));
+        }
+    }
+    http.send(data);
 }
-
-
-// const http = require('http')
-
-// postDataRegistro = () => {  
-//     let tabla = 'persona'
-//     let register = {
-//         tabla: tabla, 
-//         datos: [{
-//                     idcliente: idcliente,
-//                     idestado: idestado
-//                 }]
-//     }
-
-//     http.post(environment.API_URL, register).subscribe( data => { })
-// }
 
 
 
