@@ -1,32 +1,26 @@
+//POST DATA IN DATABASE
 const http = new XMLHttpRequest();
 
-//URL CONEXION
 const API_URL = "http://localhost:4000/persona"
 
 postDataPersona = () => {
     http.open('POST', API_URL, true);
     http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    // http.setRequestHeader("Content-Type", "application/json");
 
     http.onreadystatechange = function() {
-        if(http.readyState == 4 && http.status == 200) {
-          console.log(http.responseText);
-        }
+      if(http.readyState == 4 && http.status == 200) {
+        console.log(http.responseText);
+      }
     }
+
+    let persona_nombre = document.getElementById('persona_nombre').value
+    let persona_email = document.getElementById('persona_email').value
+    let persona_clave = document.getElementById('persona_clave').value
 
     const data =
-    {
-      // "tipo_persona_id": 1,
-      // "cartilla_id": 1,
-      persona_nombre: "test2",
-      persona_email: "test2",
-      persona_clave: "test2"
-      // "persona_nombre": document.getElementById('persona_nombre'),
-      // "persona_email": document.getElementById('persona_email'),
-      // "persona_clave": document.getElementById('persona_clave')
-    }
-
-    console.log(data)
+    (
+      `tipo_persona_id=2&cartilla_id=1&persona_nombre=${persona_nombre}&persona_email=${persona_email}&persona_clave=${persona_clave}`
+    )
     http.send(data)
 }
 
