@@ -19,29 +19,29 @@
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1 class="text-center h-20 text-3xl">Ingrese sus datos</h1>
 
-    <!-- Modal content -->
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h1 class="text-center h-20 text-3xl">Ingrese sus datos</h1>
+            <form class="text-xl" action="" method="post">
+                <label for="persona_nombre">Nombre de usuario: </label>
+                <input class="border border-orange-500" type="text" id="persona_nombre" name="persona_nombre" placeholder="Elsa Yayin">
 
-        <form class="text-xl" action="" method="post">
-            <label for="persona_nombre">Nombre de usuario: </label>
-            <input class="border border-orange-500" type="text" id="persona_nombre" name="persona_nombre" placeholder="Elsa Yayin">
+                <label for="persona_email">Correo Electrónico: </label>
+                <input class="border border-orange-500" type="email" id="persona_email" name="persona_email">
 
-            <label for="persona_email">Correo Electrónico: </label>
-            <input class="border border-orange-500" type="email" id="persona_email" name="persona_email">
+                <label for="persona_clave">Contraseña: </label>
+                <input class="border border-orange-500" type="password" id="persona_clave" name="persona_clave">
 
-            <label for="persona_clave">Contraseña: </label>
-            <input class="border border-orange-500" type="password" id="persona_clave" name="persona_clave">
-
-            <br><br>
-            <button class="center_horizontal border border-orange-500" type="button" onclick="postDataPersona()">Registrarme</button>
-        </form>
+                <br><br>
+                <button class="center_horizontal border border-orange-500" type="button" onclick="postDataPersona()">Registrarme</button>
+            </form>
+        </div>
     </div>
 
-    </div>
-
+    <button class="center_horizontal border border-orange-500" type="button" onclick="getDataPersona()">Registrarme</button>
+    <p class="bg-red-500 h-20 text-black" id="getData"></p>
 
 </body>
 

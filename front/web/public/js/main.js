@@ -4,24 +4,36 @@ const http = new XMLHttpRequest();
 const API_URL = "http://localhost:4000/persona"
 
 postDataPersona = () => {
-    http.open('POST', API_URL, true);
-    http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  http.open('POST', API_URL, true);
+  http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    http.onreadystatechange = function() {
-      if(http.readyState == 4 && http.status == 200) {
-        console.log(http.responseText);
-      }
+  http.onreadystatechange = function() {
+    if(http.readyState == 4 && http.status == 200) {
+      console.log(http.responseText);
     }
+  }
 
-    let persona_nombre = document.getElementById('persona_nombre').value
-    let persona_email = document.getElementById('persona_email').value
-    let persona_clave = document.getElementById('persona_clave').value
+  let persona_nombre = document.getElementById('persona_nombre').value
+  let persona_email = document.getElementById('persona_email').value
+  let persona_clave = document.getElementById('persona_clave').value
 
-    const data =
-    (
-      `tipo_persona_id=2&cartilla_id=1&persona_nombre=${persona_nombre}&persona_email=${persona_email}&persona_clave=${persona_clave}`
-    )
-    http.send(data)
+  let data = (`tipo_persona_id=2&cartilla_id=1&persona_nombre=${persona_nombre}&persona_email=${persona_email}&persona_clave=${persona_clave}`)
+
+  http.send(data)
+}
+
+//GET DATA IN DATABASE
+getDataPersona = () => {
+  http.onreadystatechange = function() {
+    if(http.readyState == 4 && http.status == 200) {
+      alert(http.responseText);
+    }
+  }
+  http.open('GET', API_URL, true )
+
+  http.send()
+  alert(http.responseText);
+
 }
 
 
