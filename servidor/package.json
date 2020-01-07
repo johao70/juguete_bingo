@@ -1,0 +1,19 @@
+{
+  "name": "servidor",
+  "version": "1.0.0",
+  "description": "NodeJS - Express - KnexJS",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./instalacion/index.js"
+  },
+  "author": "Johao Nicolas Perlaza Zambrano",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.18.4",
+    "pg": "^7.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
