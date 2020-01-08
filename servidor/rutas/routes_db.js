@@ -1,11 +1,11 @@
-const express = require('express')
+const express = require("express");
 let api = express.Router(),
-  control = require('../controles/crud')
+  control = require("../controles/crud");
 
-api.get('/route', control.getDatos)
-api.post('/route', control.postDatos)
-api.put('/route', control.updateDatos )
-api.delete('/route', control.deleteDatos)
-api.get('/routebyid', control.getDatosbyID)
+api.get("/bingo", control.getDatos);
+api.post("/bingo", control.postDatos);
+api.put("/bingo", control.updateDatos);
+api.delete("/bingo", control.deleteDatos);
+api.get("/bingobyid", control.getDatosbyID);
 
-module.exports = api
+module.exports = api;

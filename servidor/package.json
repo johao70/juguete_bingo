@@ -6,14 +6,20 @@
   "scripts": {
     "start": "nodemon ./instalacion/index.js"
   },
-  "author": "Johao Nicolas Perlaza Zambrano",
+  "author": "Johao Perlaza",
   "license": "MIT",
   "dependencies": {
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
     "express": "^4.17.1",
-    "knex": "^0.18.4",
-    "pg": "^7.12.0"
+    "knex": "^0.20.4",
+    "pg": "^7.17.0",
+    "prettier": "^1.19.1"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "nodemon": "^1.19.4"
   }
 }
