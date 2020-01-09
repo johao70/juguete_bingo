@@ -108,10 +108,31 @@ let getDatosbyID = (req, res) => {
     });
 };
 
+let getDatosLogin = (req, res) => {
+  let tabla = req.query.tabla;
+  let campo = req.query.campo;
+  db.select(campo)
+    .from(tabla)
+    .then(resultado => {
+      return res.status(200).json({
+        ok: true,
+        datos: resultado
+      });
+    })
+    .catch(error => {
+      return res.status(500).json({
+        ok: false,
+        datos: null,
+        mensaje: `Error del servidor: ${error}`
+      });
+    });
+};
+
 module.exports = {
   getDatos,
   postDatos,
   updateDatos,
   deleteDatos,
-  getDatosbyID
+  getDatosbyID,
+  getDatosLogin
 };

@@ -7,5 +7,6 @@ api.post("/bingo", control.postDatos);
 api.put("/bingo", control.updateDatos);
 api.delete("/bingo", control.deleteDatos);
 api.get("/bingobyid", control.getDatosbyID);
+api.get("/bingologin", control.getDatosLogin);
 
 module.exports = api;

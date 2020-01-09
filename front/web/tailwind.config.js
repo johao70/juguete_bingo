@@ -2,8 +2,6 @@ module.exports = {
   theme: {
     extend: {}
   },
-  variants: {
-    
-  },
+  variants: {},
   plugins: []
-}
+};
