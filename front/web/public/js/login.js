@@ -14,12 +14,14 @@ getDataLogin = () => {
     let datos = http.response.datos;
     let correoBD;
     let contraseñaBD;
+    let nombreBD;
 
     datos.forEach(element => {
       if (
         element.persona_email == correo &&
         element.persona_clave == contraseña
       ) {
+        nombreBD = element.persona_nombre;
         correoBD = element.persona_email;
         contraseñaBD = element.persona_clave;
       }
@@ -27,7 +29,8 @@ getDataLogin = () => {
 
     if (correo === correoBD) {
       if (contraseña === contraseñaBD) {
-        window.location.assign("./index.html");
+        localStorage.setItem("persona_nombre", nombreBD);
+        window.location.assign("./home.html");
       }
     } else {
       alert("Datos incorrectos, intentelo nuevamente");
