@@ -4,7 +4,8 @@
   "description": "NodeJS - Express - KnexJS",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./instalacion/index.js"
+    "start": "nodemon ./instalacion/index.js",
+    "seed": "knex seed:run"
   },
   "author": "Johao Perlaza",
   "license": "MIT",
