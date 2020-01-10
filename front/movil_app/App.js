@@ -8,10 +8,27 @@
 // }
 
 import React, { Component } from "react";
-import { StyleSheet, View, TextInput, Text } from "react-native";
+import { StyleSheet, View, TextInput, Text} from "react-native";
+import { Table, Row, Rows } from 'react-native-table-component';
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tableHead: ['B','I','N','G','O'],
+      tableData: [
+        ['70', '62', '3', '12', '42'],
+        ['91', '80', '18', '40', '38'],
+        ['1', '2', '', '45', '29'],
+        ['10', '50', '25', '86', '10'],
+        ['15', '24', '28', '74', '1']
+      ]
+    }
+  }
+
   render() {
+    const state = this.state;
+
     return (
       <View style={styles.container}>
         <View style={styles.container_principal}>
@@ -45,30 +62,11 @@ class Home extends Component {
           />
         </View>
 
-        <View style={styles.body}>
-          <View style={styles.b_style}>
-            <Text>B</Text>
-            {/* <TextInput value="69" editable={false}/>
-            <TextInput value="69" editable={false}/>
-            <TextInput value="69" editable={false}/>
-            <TextInput value="69" editable={false}/>
-            <TextInput value="69" editable={false}/> */}
-          </View>
-          <View style={styles.b_style}>
-            <Text>I</Text>
-          </View>
-          {/* <View style={styles.i_style}>
-            <Text>I</Text>
-          </View>          
-          <View style={styles.n_style}>
-            <Text>N</Text>
-          </View>          
-          <View style={styles.g_style}>
-            <Text>G</Text>
-          </View>          
-          <View style={styles.o_style}>
-            <Text>O</Text>
-          </View> */}
+        <View style={styles.container}>
+          <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}} style={{backgroundColor: '#537791', }}>
+            <Row data={state.tableHead} style={styles.head} textStyle={styles.text}/>
+            <Rows data={state.tableData} textStyle={styles.text} />
+          </Table>
         </View>
       </View>
     );
@@ -78,7 +76,10 @@ class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column"
+    flexDirection: "column",
+    padding: 16, 
+    paddingTop: 30, 
+    backgroundColor: '#fff' 
   },
   container_principal: {
     flex: 1,
@@ -119,35 +120,15 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 2.2,
-    flexDirection: 'row',
+    flexDirection: 'column',
     backgroundColor: 'yellow',
     justifyContent: "center"
   },
-  b_style: {
-    backgroundColor: 'red',
-    height: 100,
-    width: 100,
+  head: { 
+    height: 40, 
+    backgroundColor: 'black',    
   },
-  // i_style: {
-  //   backgroundColor: 'yellow',
-  //   height: 100,
-  //   width: 100,
-  // },
-  // n_style: {
-  //   backgroundColor: 'green',
-  //   height: 100,
-  //   width: 100,
-  // },
-  // g_style: {
-  //   backgroundColor: 'blue',
-  //   height: 100,
-  //   width: 100,
-  // },
-  // o_style: {
-  //   backgroundColor: 'orange',
-  //   height: 100,
-  //   width: 100,
-  // },
+  text: { margin: 6 , color: 'white'}
 });
 
 export default Home;
