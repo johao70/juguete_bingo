@@ -52,6 +52,7 @@ function generarCasilla(num25) {
   let casillaNum = "sq" + num25;
   let numero = tabla1[num25];
   document.getElementById(casillaNum).value = numero;
+  console.log("ok :v")
 }
 function lanzar() {
   if (numerosUsados.length < 75) {
