@@ -1,14 +1,5 @@
-// import React from 'react';
-// import Navigator from './routes';
-
-// export default function App() {
-//   return (
-//     <Navigator/>
-//   );
-// }
-
 import React, { Component } from "react";
-import { StyleSheet, View, TextInput, Text } from "react-native";
+import { StyleSheet, View, TextInput } from "react-native";
 
 class Home extends Component {
   render() {
@@ -21,7 +12,6 @@ class Home extends Component {
             editable={false}
           />
         </View>
-
         <View style={styles.container_secundarias}>
           <TextInput
             style={styles.bola_secundaria}
@@ -44,32 +34,7 @@ class Home extends Component {
             editable={false}
           />
         </View>
-
-        <View style={styles.body}>
-          <View style={styles.b_style}>
-            <Text>B</Text>
-            {/* <TextInput value="69" editable={false}/>
-            <TextInput value="69" editable={false}/>
-            <TextInput value="69" editable={false}/>
-            <TextInput value="69" editable={false}/>
-            <TextInput value="69" editable={false}/> */}
-          </View>
-          <View style={styles.b_style}>
-            <Text>I</Text>
-          </View>
-          {/* <View style={styles.i_style}>
-            <Text>I</Text>
-          </View>          
-          <View style={styles.n_style}>
-            <Text>N</Text>
-          </View>          
-          <View style={styles.g_style}>
-            <Text>G</Text>
-          </View>          
-          <View style={styles.o_style}>
-            <Text>O</Text>
-          </View> */}
-        </View>
+        <View style={styles.body}></View>
       </View>
     );
   }
@@ -119,35 +84,8 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 2.2,
-    flexDirection: 'row',
-    backgroundColor: 'yellow',
-    justifyContent: "center"
-  },
-  b_style: {
-    backgroundColor: 'red',
-    height: 100,
-    width: 100,
-  },
-  // i_style: {
-  //   backgroundColor: 'yellow',
-  //   height: 100,
-  //   width: 100,
-  // },
-  // n_style: {
-  //   backgroundColor: 'green',
-  //   height: 100,
-  //   width: 100,
-  // },
-  // g_style: {
-  //   backgroundColor: 'blue',
-  //   height: 100,
-  //   width: 100,
-  // },
-  // o_style: {
-  //   backgroundColor: 'orange',
-  //   height: 100,
-  //   width: 100,
-  // },
+    height: 100
+  }
 });
 
 export default Home;
