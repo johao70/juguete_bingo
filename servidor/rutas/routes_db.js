@@ -8,4 +8,6 @@ api.put("/bingo", control.updateDatos);
 api.delete("/bingo", control.deleteDatos);
 api.get("/bingobyid", control.getDatosbyID);
 
+api.post("/login", control.login);
+
 module.exports = api;
