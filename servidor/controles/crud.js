@@ -127,10 +127,6 @@ let login = (req, res) => {
               });
             }
           }
-          res.status(200).json({
-            ok: true,
-            mensaje: "loggeded"
-          });
         } else {
           res.status(500).json({
             ok: false,
