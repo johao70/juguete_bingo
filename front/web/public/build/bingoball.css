@@ -5,7 +5,7 @@
 .icon-btn {
   background: radial-gradient(
     circle farthest-side at 30% 15%,
-    rgba(109, 16, 16, 0.575),
+    rgb(18, 54, 153),
     #b2b2b2
   );
   width: 100px;

@@ -1,6 +1,7 @@
 let config = require("../knexfile");
 let env = "development";
 let db = require("knex")(config[env]);
+const rec = require('./bingo')
 
 let getDatos = (req, res) => {
   let tabla = req.query.tabla;
@@ -108,9 +109,9 @@ let getDatosbyID = (req, res) => {
     });
 };
 
-let login = (req, res) => {
-  let tabla = "persona";
-  let correo = req.body.correo;
+let login = (req,res) =>{
+  let tabla = 'persona';
+  let usuario = req.body.usuario;
   let clave = req.body.clave;
   let campo = req.query.campo;
 
@@ -118,30 +119,31 @@ let login = (req, res) => {
     .from(tabla)
     .then(resultado => {
       resultado.forEach(element => {
-        if (element.persona_email == correo && element.persona_clave == clave) {
-          if ( element.persona_email == correo ) {
-            if ( element.persona_clave == clave ) {
-              res.status(200).json({
-                ok: true,
-                mensaje: "loggeded"
-              });
-            }
-          }
-        } else {
-          res.status(500).json({
-            ok: false,
-            mensaje: "inc"
-          });
+        if(element.persona_nombre == usuario && element.persona_clave == clave){
+          res.status(200).json({
+            ok: true,
+            mensaje: "loggeded"
+          })
         }
-      });
+      })
+      return res.status(500).json({
+          ok: false,
+          mensaje: 'inc'
+        })
     })
     .catch(error => {
-      return res.status(500).json({
-        ok: false,
-        datas: null
-      });
-    });
-};
+          return res.status(500).json({
+              ok: false,
+              datas: null
+          })
+    })
+
+}
+
+let cartillas = (req, res) => {
+  rec.exportar();
+  return res.status(200).json(rec.tabla())
+}
 
 module.exports = {
   getDatos,
@@ -149,5 +151,6 @@ module.exports = {
   updateDatos,
   deleteDatos,
   getDatosbyID,
-  login
+  login,
+  cartillas
 };

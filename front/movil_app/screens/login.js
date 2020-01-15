@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import * as Font from 'expo-font';
-import { StyleSheet, ImageBackground, Text, RecyclerViewBackedScrollView } from 'react-native';
+import { StyleSheet, ImageBackground, Text } from 'react-native';
 import { Container, Content, Card, CardItem, Body, Item, Label, Input, Button } from 'native-base';
+// import SyncStorage from 'sync-storage';
 
 const API_URL = "http://192.168.1.7:8001/server/login";
 
 export default class Login extends Component {
-
     constructor(props){
         super(props);
         this.state = {
@@ -50,6 +50,7 @@ export default class Login extends Component {
             .then((response) => response.json())
             .then((responseJson) => {
                 if(responseJson.mensaje != 'inc'){
+                    // SyncStorage.set('usuario', this.state.usuario);
                     return this.props.navigation.push('Inicio')
                 }
                 return alert(JSON.stringify(responseJson))
@@ -91,7 +92,7 @@ export default class Login extends Component {
                                    
                                     </Item>
                                     
-                                    <Button rounded style={styles.btn} onPress={this.login}>
+                                    <Button rounded style={styles.btn} onPress={() => this.props.navigation.push('Inicio')}>
                                         <Text style={styles.txt} >Ingresar</Text>
                                     </Button>
                                     <Button rounded style={styles.btn2} onPress={() => this.props.navigation.push('Registro')}>
