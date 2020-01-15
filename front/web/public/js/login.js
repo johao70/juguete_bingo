@@ -1,29 +1,41 @@
 const http = new XMLHttpRequest();
 
-const API_URL = "http://localhost:8001/server/login";
+const API_URL = "http://localhost:8001/server/bingo";
 
 getDataLogin = () => {
-  let usuario = document.getElementById("persona_usuario").value;
+  let correo = document.getElementById("persona_email").value;
   let contraseña = document.getElementById("persona_clave").value;
 
-  let data = {
-    usuario: usuario,
-    clave: contraseña
-  };
+  http.open("GET", API_URL + "?tabla=persona");
 
-  http.open("POST", API_URL);
-  http.setRequestHeader("Content-Type", "application/json");
+  http.responseType = "json";
 
-  http.onreadystatechange = function() {
-    if (http.readyState === 4) {
-      let response = JSON.parse(http.response);
-      if (response.mensaje != "inc") {
-        window.location.assign("./home.html");
-      } else {
-        alert("Datos Incorrectos");
+  http.onload = () => {
+    let datos = http.response.datos;
+    let correoBD;
+    let contraseñaBD;
+    let nombreBD;
+
+    datos.forEach(element => {
+      if (
+        element.persona_email == correo &&
+        element.persona_clave == contraseña
+      ) {
+        nombreBD = element.persona_nombre;
+        correoBD = element.persona_email;
+        contraseñaBD = element.persona_clave;
       }
+    });
+
+    if (correo === correoBD) {
+      if (contraseña === contraseñaBD) {
+        localStorage.setItem("persona_nombre", nombreBD);
+        window.location.assign("./home.html");
+      }
+    } else {
+      alert("Datos incorrectos, intentelo nuevamente");
     }
   };
 
-  http.send(JSON.stringify(data));
+  http.send();
 };
