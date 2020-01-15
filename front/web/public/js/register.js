@@ -10,15 +10,14 @@ postDataPersona = () => {
   let persona_clave = document.getElementById("persona_clave").value;
 
   let data = {
-    tabla: tabla, 
-    datos:
-      {
-        tipo_persona_id: 2,
-        persona_nombre: persona_nombre,
-        persona_email: persona_email,
-        persona_clave: persona_clave
-      }
-   };
+    tabla: tabla,
+    datos: {
+      tipo_persona_id: 2,
+      persona_nombre: persona_nombre,
+      persona_email: persona_email,
+      persona_clave: persona_clave
+    }
+  };
 
   http.open("POST", API_URL, true);
   http.setRequestHeader("Content-Type", "application/json");

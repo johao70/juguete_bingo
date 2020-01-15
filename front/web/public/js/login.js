@@ -9,25 +9,21 @@ getDataLogin = () => {
   let data = {
     usuario: usuario,
     clave: contraseña
-  }
+  };
 
   http.open("POST", API_URL);
   http.setRequestHeader("Content-Type", "application/json");
 
-
-  http.onreadystatechange = function(){
-    if(http.readyState === 4){
-
-      let response = JSON.parse(http.response) 
-      if(response.mensaje != 'inc'){
-        window.location.assign('./home.html')
-      }
-      else
-      {
-        alert('Datos Incorrectos')
+  http.onreadystatechange = function() {
+    if (http.readyState === 4) {
+      let response = JSON.parse(http.response);
+      if (response.mensaje != "inc") {
+        window.location.assign("./home.html");
+      } else {
+        alert("Datos Incorrectos");
       }
     }
-  }
+  };
 
   http.send(JSON.stringify(data));
 };
