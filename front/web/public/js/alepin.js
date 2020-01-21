@@ -2,7 +2,7 @@ window.onload = initAll;
 var usedNums = new Array(76);
 function initAll() {
   if (document.getElementById) {
-    document.getElementById("reload").onclick = anotherCard;
+    // document.getElementById("reload").onclick = anotherCard;
     newCardA();
     newCardB();
     newCardC();
